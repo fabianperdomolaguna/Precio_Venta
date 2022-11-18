@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Swal from "sweetalert2";
 import numeroaletras from "./numeroaletras";
 
@@ -81,8 +81,10 @@ function App() {
     }
   };
 
-  const resetSubmit = () => {
+  const resetSubmit = (event) => {
+    event.preventDefault()
     setFormValues(initialValues);
+    reload()
   };
 
   return (
@@ -161,6 +163,9 @@ function App() {
                 <div className="mt-3 form-group">
                   <button className="btn btn-success me-1 col-5">
                     Calcular
+                  </button>
+                  <button className="btn btn-danger col-5" onClick={resetSubmit}>
+                    Reset
                   </button>
                 </div>
                 <div className="mt-3 form-group"></div>
